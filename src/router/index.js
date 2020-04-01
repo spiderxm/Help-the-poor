@@ -5,7 +5,6 @@ import Register from '@/components/Registration'
 import Helper from '@/components/Helper'
 import Profile from '@/components/Profile'
 import Helpneeded from '@/components/Helpneeded'
-import feedback from '@/components/Feedback'
 import Home from '@/components/Home'
 import firebase from 'firebase'
 
@@ -37,10 +36,6 @@ const router =  new Router({
       name: 'Helpneeded',
       component: Helpneeded,
       
-    },{
-      path: '/feedback',
-      name: 'feedback',
-      component: feedback
     },{
       
         path: '/profile',

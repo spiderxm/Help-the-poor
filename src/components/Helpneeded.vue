@@ -1,11 +1,11 @@
 <template> 
 <div class="signup container">
     <div class="form">
-        <form action="" @submit.prevent="signup" class="card-panel">
+        <form action="" @submit.prevent="submit" class="card-panel">
             <h2 class="center black-text">Fill the form to get help</h2>
             <div class="field">
                 <label for="name" class="label">Name</label>
-                <input type="name" name="name" v-model="name" placeholder="name" class="input">
+                <input type="name" name="name" v-model="name" placeholder="name" class="input" required>
             </div>
             <div class="field">
                 <label for="number" class="label">Phone number</label>
@@ -14,7 +14,11 @@
 
             <div class="field">
                 <label for="address" class="label">Address</label>
-                <input type="text" name="adress" v-model="address" placeholder="address" class="input">
+                <input type="text" name="adress" v-model="address" placeholder="address" class="input" required>
+            </div>
+            <div class="field">
+                <label for="city" class="label">City</label>
+                <input type="text" name="city" v-model="city" placeholder="city" class="input" required>
             </div>
 
             <div class="field">
@@ -22,9 +26,7 @@
             <textarea rows = "5" cols = "50" name = "description" placeholder="Enter what all you need and specifications" v-model="description" class="input">            </textarea>
 
             </div>
-            <div class="field">
-                <p v-if="feedback" class="center red-text">{{feedback}}</p>
-            </div>
+           
 
             <div class="field center"><button class="btn black">Submit</button></div>
         </form>
@@ -42,12 +44,38 @@ export default {
           name:null,
           number:null,
           description:null,
-          address:null
+          address:null,
+          city:null,
+          lat:null,
+          lng:null
 
         }
     },
     methods:{
-       
+        submit(){
+            if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(pos =>{
+                        this.lat = pos.coords.latitude;
+                        this.lng = pos.coords.longitude;                
+                        console.log(12);
+                    })
+                }
+            if(this.name && this.number && this.description && this.address && this.city){
+        db.collection('inneedofhelp').add({
+      name:this.name,
+      number:this.number,
+      description:this.description,
+      address:this.address,
+      city:this.city,
+      geolocation:{
+          lng:this.lng,
+          lat:this.lat
+      }
+  }).then(()=>
+  this.$router.push({name:'Home'})
+  ).catch(err => console.log(err));
+            }
+        }
     }
 }
 </script>
@@ -57,7 +85,7 @@ export default {
 .signup{
      padding: 150px 0;
      background-size: cover;
-     background-image:url(../assets/4.jpg);
+     background-image:url(../assets/123.jpg);
      height: 95vh;
      background-position: center;
      font: Lato;

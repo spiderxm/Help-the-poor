@@ -1,7 +1,7 @@
 <template>
     <div class="helper container">
     <div class="form">
-        <form action="" @submit.prevent="signup" class="card-panel">
+        <form action="" @submit.prevent="submit" class="card-panel">
             <h2 class="center black-text">Fill the form to get help</h2>
             <div class="field">
                 <label for="name" class="label">Name</label>
@@ -11,7 +11,6 @@
                 <label for="number" class="label">Phone number</label>
                 <input type="tel" id="phone" name="phone" placeholder="9999912345" pattern="[0-9]{10}" required v-model="number" class="input" >   
             </div>
-
             <div class="field">
                 <label for="address" class="label">Address</label>
                 <input type="text" name="adress" v-model="address" placeholder="address" class="input" required>
@@ -26,10 +25,7 @@
             <textarea rows = "5" cols = "50" name = "description" placeholder="Enter what all you can provide and in what quantity" v-model="description" class="input" required>            </textarea>
 
             </div>
-            <div class="field">
-                <p v-if="feedback" class="center red-text">{{feedback}}</p>
-            </div>
-
+           
             <div class="field center"><button class="btn black">Submit</button></div>
         </form>
 </div>
@@ -51,7 +47,22 @@ export default {
         description:null
         
         }
-    }
+    },methods:{
+          submit(){
+            if(this.name && this.number && this.description && this.address && this.city){
+        db.collection('helper').add({
+      name:this.name,
+      number:this.number,
+      description:this.description,
+      address:this.address,
+      city:this.city,
+      userid:firebase.auth().currentUser.uid
+  }).then(()=>
+  this.$router.push({name:'Home'})
+  ).catch(err => console.log(err));
+            }
+            }
+            }
 }
 </script>
 
@@ -60,7 +71,7 @@ export default {
 .helper{
      padding: 150px 0;
      background-size: cover;
-     background-image:url(../assets/1.jpg);
+     background-image:url(../assets/1000.jpg);
      height: 95vh;
      background-position: center;
      font: Lato;
