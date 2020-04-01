@@ -1,4 +1,20 @@
 <template>
+<div class="index">
+     <header class="main">
+         <div></div>
+          <div class="toper">
+         <h2 class="h2">We provide service on the doorstep</h2>
+         <h4 class="h4">Just fill out the form provided by us and our fearless boys will be there for help if you need help or there to collect the goods being given by you towards this fight against coronavirus</h4></div>
+         <div class="topper">
+         <h2 class="h2">Help the poor</h2>
+         <h4 class="h4">Help the needful by providing them food necessary comodities during the lockdown this is a small step against the fight with coronavirus</h4></div>
+    
+    </header>
+    <div class="contribute">
+        <div class="heding">
+ <h2 class="h2 h67" >What all you can provide</h2>        
+ </div>
+    </div>
     <div class="feedback container">
     <div class="form">
         <form action="" @submit.prevent="feedback" class="card-panel">
@@ -18,6 +34,7 @@
             </div>
             <div class="field center"><button class="btn black">Submit</button></div>
         </form>
+</div>
 </div>
 </div>
 </template>
@@ -50,16 +67,121 @@ export default {
 </script>
 
 <style scoped>
+
+.index{
+    margin:20px 20px;
+}
+.main{
+     padding: 150px 0;
+     background-size: cover;
+     background-image:url(../assets/main.jpg);
+     height: 95vh;
+     background-position: center;
+     font: Lato;
+     position: relative;
+     
+}
+.topper{
+    position: absolute;
+    top: 30%;
+    left: 63%;
+    width: 35%;
+}
+.toper{
+    position: absolute;
+    top: 20%;
+    left: 1%;
+    width: 35%;
+}
+.h2{
+    font-size: 2rem;
+    font-family: 'Abril Fatface';
+    text-decoration: none;
+    text-transform: uppercase;
+        animation-name: moveInleft;
+        animation-duration: 2s;
+}
+.h67{
+    color: white;
+    background-color: rgba(32, 22, 22,.5);
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+
+}
+.h4{
+    font-size:1.5rem;
+    font-family: 'Combo';
+    text-decoration: none;
+    text-transform: capitalize;
+ animation-name: moveInright;
+        animation-duration: 2s;
+
+}
+.heading{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.contribute{
+     background-size: cover;
+     background-image:url(../assets/help.jpg);
+     height: 95vh;
+     position: relative;
+     background-position: center;
+     font: Lato;
+     text-align: center;
+     clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
+
+}
+
 .feedback{
      padding: 150px 0;
      background-size: cover;
+     margin-top: -20vh;
      background-image:url(../assets/123.jpg);
      height: 95vh;
      background-position: center;
      font: Lato;
+     position: relative;
+     clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%);
+
+}
+
+@keyframes moveInright {
+    0% {
+        opacity: 0;
+        transform: translateX(+100px);
+        /*to animate in x axis */
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+        /* looks the way exactly it is right now */
+    }
+}
+@keyframes moveInleft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+        /*to animate in x axis */
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+        /* looks the way exactly it is right now */
+    }
 }
 .form{
     background-image: linear-gradient(to right bottom, rgba(99, 90, 90,.7),rgb(24, 21, 21,.7));
+    position: absolute;
     border-radius: 10px;
     width: 30%;
     margin: 150px auto;
