@@ -19,7 +19,22 @@
         <div class="heding">
  <h2 class="h2 h67" >What all you can provide</h2> 
  <div class="row">
- </div>       
+    <div class="col-1-of-3"><h2>Atta</h2></div>
+    <div class="col-1-of-3"><h2>Rice</h2></div>
+    <div class="col-1-of-3"><h2>Mask</h2></div>
+
+ </div>    
+ <div class="row">
+    <div class="col-1-of-3"><h2>Oil</h2></div>
+    <div class="col-1-of-3"><h2>Lentils</h2></div>
+    <div class="col-1-of-3"><h2>Vegetables</h2></div>
+
+ </div>   
+ <div class="row">
+    <div class="col-1-of-3"><h2>Sanitizer</h2></div>
+    <div class="col-1-of-3"><h2>Soap</h2></div>
+
+ </div>      
  </div>
     </div>
     <div class="feedback container">
@@ -93,9 +108,47 @@ export default {
 .t{
     position: absolute;
     top: 70%;
+    left: 20%;
     color: rgb(0, 0, 0);
     width: 60%
 }
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 110px; 
+    }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 60px; }
+  .row .col-1-of-2 {
+    width: calc((100% - 60px)/2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2*(60px))/3); 
+    text-align: center;
+    color: black;
+    }
+    .row .col-1-of-3 h2{
+        background-color: white;
+        width: 100px;
+        margin: 40px auto;
+        padding: 10px 6px;
+        border-radius: 20px;
+        font-family: 'Combo';
+        border: black 1px solid;
+        transition: all .2s;
+    }
+    .row .col-1-of-3 h2:hover{
+        transform: scale(1.2);
+
+    }
+
 .main{
      padding: 150px 0;
      background-size: cover;
