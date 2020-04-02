@@ -1,8 +1,8 @@
 <template>
-    <div class="helper container">
+<div class="helper container">
     <div class="form">
         <form action="" @submit.prevent="submit" class="card-panel">
-            <h2 class="center black-text">Fill the form to get help</h2>
+            <h2 class="center black-text">Fill the form to give help</h2>
             <div class="field">
                 <label for="name" class="label">Name</label>
                 <input type="name" name="name" v-model="name" placeholder="name" class="input" required>
@@ -29,6 +29,7 @@
             <div class="field center"><button class="btn black">Submit</button></div>
         </form>
 </div>
+
 </div>
 </template>
 
@@ -80,7 +81,8 @@ export default {
     background-image: linear-gradient(to right bottom, rgba(99, 90, 90,.7),rgb(24, 21, 21,.7));
     border-radius: 10px;
     width: 30%;
-    margin: 100px auto;
+
+    margin: 150px auto;
     top: 50%;
     color: white;
     left:50%;
@@ -151,6 +153,11 @@ export default {
 }
 .input:focus{
     outline: none;
+
+}
+.footer{
+    position: relative;
+    height: 100px;
 
 }
 .btn:hover{

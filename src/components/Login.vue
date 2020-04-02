@@ -1,5 +1,6 @@
 <template>
-     
+<div>
+      
     <div class="login container">
         <div class="form">
         <form @submit.prevent="login" class="card-panel">
@@ -21,7 +22,7 @@
                 <p v-if="feedback" class="center red-text" style="text-size:16px">{{feedback}}</p>
             </div>
         </form>
-    </div></div>
+    </div></div></div>
 </template>
 <script>
 import firebase from 'firebase'

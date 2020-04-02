@@ -119,7 +119,7 @@ export default {
     background-image: linear-gradient(to right bottom, rgba(99, 90, 90,.7),rgb(24, 21, 21,.7));
     border-radius: 10px;
     width: 30%;
-    margin: auto auto;
+    margin: 80px auto;
     top: 50%;
     color: white;
     left:50%;

@@ -1,18 +1,25 @@
 <template>
 <div class="index">
+    
+   
      <header class="main">
-         <div></div>
+         <div class="bottom">
+         <div class="t">
+            <h2 class="h2">We provide help within 3 hours to the needful. Please contribute to Pm care fund and stay at home. We are following proper sanitization norms</h2>
+         </div></div>
           <div class="toper">
          <h2 class="h2">We provide service on the doorstep</h2>
          <h4 class="h4">Just fill out the form provided by us and our fearless boys will be there for help if you need help or there to collect the goods being given by you towards this fight against coronavirus</h4></div>
          <div class="topper">
-         <h2 class="h2">Help the poor</h2>
-         <h4 class="h4">Help the needful by providing them food necessary comodities during the lockdown this is a small step against the fight with coronavirus</h4></div>
+         <h2 class="h2">A small initiative</h2>
+         <h4 class="h4">Help the needful by providing them food necessary comodities during the lockdown this is a small step against the fight with coronavirus.</h4></div>
     
     </header>
     <div class="contribute">
         <div class="heding">
- <h2 class="h2 h67" >What all you can provide</h2>        
+ <h2 class="h2 h67" >What all you can provide</h2> 
+ <div class="row">
+ </div>       
  </div>
     </div>
     <div class="feedback container">
@@ -29,10 +36,14 @@
             </div>
             <div class="field">
                 <label for="description" class="label">Description</label>
-            <textarea rows = "5" cols = "50" name = "description" placeholder="Enter what all you need and specifications" v-model="description" class="input">            </textarea>
+            <textarea rows = "5" cols = "50" name = "description" required placeholder="Enter what all you need and specifications" v-model="description" class="input">            </textarea>
 
             </div>
             <div class="field center"><button class="btn black">Submit</button></div>
+            <div class="field">
+                <p v-if="feedbackk" style="color:green;text-align:center">{{feedbackk}}</p>
+
+            </div>
         </form>
 </div>
 </div>
@@ -50,6 +61,8 @@ export default {
        name:null,
        number:null,
        description:null,
+       user:null,
+       feedbackk:null
         }
     },
     methods:{
@@ -60,25 +73,38 @@ export default {
               name:this.name,
               number:this.number,
               description:this.description
-          }).then(()=> this.$router.push({'name':'Home'})).catch(err => console.log(err));
+          }).then(()=>{
+              this.name = null;
+               this.number = null;
+               this.description = null;
+               this.feedbackk = "thanks for your valuable feedback";
+          }).catch(err => console.log(err));
       }
+    },
+    mounted(){
+        this.user = firebase.auth().currentUser;
     }
 }
 </script>
 
 <style scoped>
 
-.index{
-    margin:20px 20px;
+
+.t{
+    position: absolute;
+    top: 70%;
+    color: rgb(0, 0, 0);
+    width: 60%
 }
 .main{
      padding: 150px 0;
      background-size: cover;
-     background-image:url(../assets/main.jpg);
+     z-index: -1;
+     background-image:linear-gradient(to right bottom , rgba(255, 255, 255,.4) , rgba(128, 128, 128,.4)),url(../assets/main.jpg);
      height: 95vh;
      background-position: center;
      font: Lato;
-     position: relative;
+ 
      
 }
 .topper{
