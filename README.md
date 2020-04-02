@@ -1,10 +1,8 @@
-# helpthepoor
+A vue.js application
 
-> 
-
-## Build Setup
-
-``` bash
+Firebase for authentication, storage and deployment.
+ 
+This website provides a platform for people to help each other during the Corona Virus scare.
 # install dependencies
 npm install
 
