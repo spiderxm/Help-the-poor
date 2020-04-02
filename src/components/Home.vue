@@ -62,6 +62,12 @@
         </form>
 </div>
 </div>
+ <footer class="footer">
+        <div class="footer_brandname">
+            <a href="https://github.com/spiderxm/explore-himachal" class="footer_brandname_text">MGK</a>
+
+        </div>
+    </footer>
 </div>
 </template>
 
@@ -113,6 +119,24 @@ export default {
     width: 60%
 }
 
+.footer {
+  background-color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  height: 100px;
+  position: relative; }
+  .footer_brandname {
+    position: absolute;
+    left: 50%;
+    text-size: 30px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer; }
+    .footer_brandname_text {
+      color: white; }
+
 .row {
   max-width: 1140px;
   margin: 0 auto; }
@@ -142,7 +166,7 @@ export default {
         border-radius: 20px;
         font-family: 'Combo';
         border: black 1px solid;
-        transition: all .2s;
+        transition: all .2s ease-in-out;
     }
     .row .col-1-of-3 h2:hover{
         transform: scale(1.2);

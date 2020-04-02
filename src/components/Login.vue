@@ -19,7 +19,7 @@
               <button class=" black btn">Login</button>
           </div>
             <div class="field">
-                <p v-if="feedback" class="center red-text" style="text-size:16px">{{feedback}}</p>
+                <p v-if="feedback" class="center red-text" style="text-size:16px;color:orange">{{feedback}}</p>
             </div>
         </form>
     </div></div></div>

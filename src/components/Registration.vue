@@ -26,11 +26,12 @@
                 <label for="alias" class="label">Alias</label>
                 <input type="text" name="alias" v-model="alias" placeholder="username" class="input" required>
             </div>
-            <div class="field">
-                <p v-if="feedback" class="center red-text">{{feedback}}</p>
-            </div>
+           
 
             <div class="field center"><button class="btn black">Signup</button></div>
+             <div class="field">
+                <p v-if="feedback" class="center red-text" style="color:orange">{{feedback}}</p>
+            </div>
         </form>
 </div>
 </div>
@@ -91,7 +92,8 @@ export default {
                           )
                         }).catch(err=>
                         {console.log(err)
-                        this.feedback = err.message});
+                        this.feedback = err.message
+                        console.log(err.message)});
                          this.feedback="This alias is free to use";
                          
                     }
@@ -119,7 +121,7 @@ export default {
     background-image: linear-gradient(to right bottom, rgba(99, 90, 90,.7),rgb(24, 21, 21,.7));
     border-radius: 10px;
     width: 30%;
-    margin: 80px auto;
+    margin: 180px auto;
     top: 50%;
     color: white;
     left:50%;
